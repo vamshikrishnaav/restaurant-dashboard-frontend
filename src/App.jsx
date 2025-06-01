@@ -51,31 +51,25 @@ const App = () => {
         <Route
           path="/tables"
           element={
-            <ProtectedRoute>
-              <Layout>
-                <Tables />
-              </Layout>
-            </ProtectedRoute>
+            <Layout>
+              <Tables />
+            </Layout>
           }
         />
         <Route
           path="/analytics"
           element={
-            <ProtectedRoute>
-              <Layout>
-                <Analytics />
-              </Layout>
-            </ProtectedRoute>
+            <Layout>
+              <Analytics />
+            </Layout>
           }
         />
         <Route
           path="/menu"
           element={
-            <ProtectedRoute>
-              <Layout>
-                <Menu />
-              </Layout>
-            </ProtectedRoute>
+            <Layout>
+              <Menu />
+            </Layout>
           }
         />
       </Routes>

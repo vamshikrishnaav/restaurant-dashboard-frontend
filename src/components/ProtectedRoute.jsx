@@ -5,8 +5,7 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ children }) => {
   // check for user presence
   try {
-    const token = localStorage.getItem("token");
-    const data = jwtDecode(token);
+    const data = jwtDecode(document.cookie);
 
     return data.role === "admin" ? children : <Navigate to="/login" />;
   } catch (error) {
