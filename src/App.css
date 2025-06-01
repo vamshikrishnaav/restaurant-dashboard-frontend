@@ -1,0 +1,40 @@
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+ 
+  .sidebar {
+    width: 80px;
+    background-color: #f2f5f5;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+
+  .main-layout {
+    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 80px);
+    height: 100vh;
+  }
+  
+
+  .header {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+  
