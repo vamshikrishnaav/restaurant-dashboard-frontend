@@ -43,12 +43,9 @@ const Dashboard = () => {
       setTotalorder(data.count);
     }
     async function totalRevenue() {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/order/total-revenue",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${API}/api/v1/order/total-revenue`, {
+        withCredentials: true,
+      });
 
       setTotalRevnue(data.revenue);
     }
