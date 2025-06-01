@@ -46,10 +46,11 @@ const Header = () => {
           {showDropdown && (
             <div className="dropdown-menu">
               <div onClick={() => handleOptionClick("All")}>All</div>
-              <div onClick={() => handleOptionClick("Fruit")}>Fruit</div>
-              <div onClick={() => handleOptionClick("Vegetable")}>
-                Vegetable
+              <div onClick={() => handleOptionClick("Revenue")}>Revenue</div>
+              <div onClick={() => handleOptionClick("order Summary")}>
+                order Summary
               </div>
+              <div onClick={() => handleOptionClick("table")}>table</div>
             </div>
           )}
         </div>
