@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import axios from "axios";
+const API = import.meta.env.VITE_API;
 
 const LoginPage = () => {
   const [number, setNumber] = useState("");
@@ -14,7 +15,7 @@ const LoginPage = () => {
     // localStorage.setItem("user", JSON.stringify(formData)); // simulate login
 
     const userloggedIn = await axios.post(
-      "http://localhost:3000/api/v1/user/sign-in",
+      `${API}/api/v1/user/sign-in`,
       { number, password },
       { withCredentials: true }
     );

@@ -9,6 +9,7 @@ import RevenueChart from "./RevenueChart";
 import TableGrid from "./TableGrid";
 import ChefTable from "./ChefTable";
 import axios from "axios";
+const API = import.meta.env.VITE_API;
 
 const StatCard = ({ icon, value, label }) => (
   <div className="stat-card">
@@ -27,23 +28,17 @@ const Dashboard = () => {
 
   useEffect(() => {
     async function totalUser() {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/user/totalUsers",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${API}/api/v1/user/totalUsers`, {
+        withCredentials: true,
+      });
 
       setTotaluser(data.count);
     }
 
     async function totalOrder() {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/order/total-order",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${API}/api/v1/order/total-order`, {
+        withCredentials: true,
+      });
 
       setTotalorder(data.count);
     }

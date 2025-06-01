@@ -1,28 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Analytics.css";
 import axios from "axios";
-
-const orders = [
-  { id: 108, type: "Dine In", time: "Ongoing: 4 Min", status: "Processing" },
-  { id: 108, type: "Dine In", time: "Served", status: "Served" },
-  { id: 108, type: "Take Away", time: "Not Picked up", status: "Ready" },
-  { id: 108, type: "Dine In", time: "Ongoing: 4 Min", status: "Processing" },
-  { id: 108, type: "Dine In", time: "Ongoing: 4 Min", status: "Processing" },
-  { id: 108, type: "Take Away", time: "Not Picked up", status: "Ready" },
-  { id: 108, type: "Dine In", time: "Served", status: "Served" },
-  { id: 108, type: "Dine In", time: "Ongoing: 4 Min", status: "Processing" },
-];
+const API = import.meta.env.VITE_API;
 
 const Analytics = () => {
   const [order, setOrder] = useState([]);
   useEffect(() => {
     async function getOrderSummary() {
-      const summary = await axios.get(
-        "http://localhost:3000/api/v1/order/order-summary",
-        {
-          withCredentials: true,
-        }
-      );
+      const summary = await axios.get(`${API}/api/v1/order/order-summary`, {
+        withCredentials: true,
+      });
       setOrder(summary.data);
     }
 

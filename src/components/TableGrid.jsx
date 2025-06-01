@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./TableGrid.css";
+const API = import.meta.env.VITE_API;
 
 import axios from "axios";
 import { useState } from "react";
@@ -9,12 +10,9 @@ const TableGrid = () => {
 
   useEffect(() => {
     const getTable = async () => {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/table/table-summary",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${API}/api/v1/table/table-summary`, {
+        withCredentials: true,
+      });
 
       setTables(data.tableSummary);
     };
@@ -30,7 +28,7 @@ const TableGrid = () => {
 
   const handleClick = async (tableNumber) => {
     const table = await axios.post(
-      "http://localhost:3000/api/v1/table/book-table",
+      `${API}/api/v1/table/book-table`,
       { tableNumber },
       {
         withCredentials: true,

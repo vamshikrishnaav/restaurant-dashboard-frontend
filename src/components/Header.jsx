@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 import "./Header.css";
 import dropdownArrow from "../assets/dropDownIcon.svg";
 import axios from "axios";
+const API = import.meta.env.VITE_API;
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     await axios.post(
-      "http://localhost:3000/api/v1/user/sign-out",
+      `${API}/api/v1/user/sign-out`,
       {},
       {
         withCredentials: true,

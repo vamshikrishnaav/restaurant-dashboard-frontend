@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import "./RevenueChart.css";
 import axios from "axios";
+const API = import.meta.env.VITE_API;
 
 const RevenueChart = () => {
   const [period, setPeriod] = useState("Daily");
 
   const days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
-  const revenueData = [1200, 2200, 1800, 2500, 1900, 3200, 2100];
 
   const [revenue, setRevenue] = useState([]);
 
   useEffect(() => {
     async function getRevenue() {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/order/revenue-week",
-        { withCredentials: true }
-      );
+      const { data } = await axios.get(`${API}/api/v1/order/revenue-week`, {
+        withCredentials: true,
+      });
 
       setRevenue(data.revenueByWeekday);
     }

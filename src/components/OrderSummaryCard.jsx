@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import "./OrderSummaryCard.css";
 import axios from "axios";
+const API = import.meta.env.VITE_API;
 
 const dataMap = {
   Daily: { served: 9, dineIn: 5, takeAway: 6 },
@@ -21,12 +22,9 @@ const OrderSummaryCard = () => {
 
   useEffect(() => {
     async function orderData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/api/v1/order/order-data",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${API}/api/v1/order/order-data`, {
+        withCredentials: true,
+      });
 
       setOrderData(data.orderType);
     }
