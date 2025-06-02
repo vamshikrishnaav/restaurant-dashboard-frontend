@@ -4,7 +4,6 @@ const API = import.meta.env.VITE_API;
 
 import axios from "axios";
 import { useState } from "react";
-import table from "../../../backend/model/table";
 
 const TableGrid = () => {
   const [tables, setTables] = useState([]);
