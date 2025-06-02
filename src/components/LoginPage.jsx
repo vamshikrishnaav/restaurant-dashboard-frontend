@@ -20,7 +20,6 @@ const LoginPage = () => {
       { withCredentials: true }
     );
 
-    console.log(document.cookie);
     navigate("/dashboard"); // ✅ use navigate function properly
   };
 

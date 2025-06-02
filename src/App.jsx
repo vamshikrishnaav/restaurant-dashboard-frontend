@@ -43,33 +43,41 @@ const App = () => {
         <Route
           path="/dashboard"
           element={
-            <Layout>
-              <Dashboard />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/tables"
           element={
-            <Layout>
-              <Tables />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Tables />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/analytics"
           element={
-            <Layout>
-              <Analytics />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Analytics />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/menu"
           element={
-            <Layout>
-              <Menu />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Menu />
+              </Layout>
+            </ProtectedRoute>
           }
         />
       </Routes>
